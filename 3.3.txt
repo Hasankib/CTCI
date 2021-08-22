@@ -1,0 +1,37 @@
+from three import *
+
+class SetofStacksNode:
+    def __init__(self,nextStack):
+        self.top = None
+        self.nextStack = nextStack
+        self.stackHeight = 0
+
+class SetofStacks:
+    def __init__(self,threshhold):
+        self.threshhold = threshhold
+        self.topStack = None
+    def push(self,data):
+        if(self.topStack == None):
+            self.topStack = SetofStacksNode(None)
+            self.topStack.top = stackNode(data,None)
+            self.topStack.stackHeight += 1
+        else:
+            if(self.topStack.stackHeight<self.threshhold):
+                self.topStack.top = stackNode(data,self.stackNode.top)
+            else:
+                self.topStack = SetofStacksNode(self.topStack)
+                self.topStack.top = stackNode(data,None)
+                self.topStack.stackHeight += 1
+
+    def pop(self):
+        if(not self.topStack):
+            return "Empty Stack Set"
+        else if(self.topStack.stackHeight == 1):
+            tmp = self.topStack.top
+            self.topStack = self.topStack.nextStack
+            return tmp
+        else:
+            tmp = self.topStack.top
+            self.topStack.top = self.topStack.top.next
+            return tmp
+    

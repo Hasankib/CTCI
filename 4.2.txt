@@ -1,0 +1,29 @@
+class node:
+    def __init__(self,name:int):
+        self.name = name
+        self.leftChild = None
+        self.rightChild = None
+
+class Tree:
+    def __init__(self,root:node):
+        self.root = root
+
+def minTree(array:list):
+    rootIndex = len(array)//2
+    array2 = []
+    for i in (array):
+        array2.append(node(i))
+    tree = Tree(node(array2[rootIndex]))
+    minTreeHelper(array2)
+    return tree
+
+def minTreeHelper(array2:list):
+    rootIndex = len(array2)//2
+    if(rootIndex == 0):
+        return
+    if(rootIndex == len(array2) - 1):
+        return
+    array2[rootIndex].leftChild = array2[rootIndex-1]
+    array2[rootIndex].rightChild = array2[rootIndex + 1]
+    minTreeHelper(array2[3:])
+    minTreeHelper(array2[:-3])        

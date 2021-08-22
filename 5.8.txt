@@ -1,0 +1,11 @@
+drawLine(screen:list,width:int,x1:int,x2:int,y:int):
+    if((x2 - x1)*8 > width):
+        return "ERROR"
+    if(screen[x1] & 1 == 0):
+        mask = 0
+    else:
+        mask = ~0
+    for i in range(x1,x2+1):
+        screen[i] = screen[i] & mask
+
+    return 

@@ -1,0 +1,17 @@
+def FBtW(integer: int):
+    consecZeros = 0
+    longestStreak = 0
+    current Streak = 0
+    while(integer != 0):
+        tmp = integer
+        integer = integer >> 1
+        if(integer / tmp == 2):
+            currentStreak += 1
+        else:
+            consecZeros += 1
+            if(consecZeros == 2):
+                if(currentStreak > longestStreak):
+                    longestStreak = currentStreak
+                currentStreak = 0
+            currentStreak += 1
+    return longestStreak

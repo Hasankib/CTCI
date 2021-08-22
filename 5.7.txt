@@ -1,0 +1,12 @@
+y = 1
+for i in range(16):
+    y += y * 4
+
+c= 15
+a = 0
+tmp = c
+c = c >> 1
+a = c & y
+x = y << 1 
+c = tmp << 1
+c = c & x

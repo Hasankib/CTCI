@@ -1,0 +1,13 @@
+def Conversion(a:int,b:int) -> int:
+    track = 0
+    mask1 = 1
+    while(a != 0 or b!= 0):
+        if(a & mask1):
+            if(not(b & mask 1)):
+                track += 1
+        elif(b & mask1):
+            track += 1
+        a = a>>1
+        b = b>>1
+
+    return track

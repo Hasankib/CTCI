@@ -1,0 +1,40 @@
+class stackNode:
+    def __init__ (self,data,next):
+        self.data = data
+        self.next = next
+
+class Stack:
+    def __init__(self):
+        self.top = None
+    def pop(self):
+        tmp = self.top
+        self.top = self.top.next
+        return tmp
+    def push(self,data):
+        self.top = stackNode(data,self.top)
+    def peek(self):
+        if(self.top):
+            return self.top.data
+        return "Empty"
+    def isEmpty(self):
+        return self.top == None 
+
+class StackSorter:
+    def __init__(self, sortableStack):
+        self.sortableStack = sortableStack
+        self.tmpStack = Stack()
+        self.tmpStack.push(self.sortableStack.pop().data)
+        while(not self.sortableStack.isEmpty()):
+            if(self.sortableStack.peek()>=tmpStack.peek()):
+                tmpStack.push(self.sortableStack.pop().data)
+            else:
+                tmpNode = self.sortableStack.pop()
+                while(not tmpStack.peek()<=tmpNode.data):
+                    self.sortableStack.push(tmpStack.pop().data)
+                tmpStack.push(tmpNode.data)
+        while(not tmpStack.isEmpty()):
+            self.sortableStack.push(tmpStack.pop().data)
+    
+    def printStack(self):
+        while(not self.sortableStack.isEmpty()):
+            print(self.sortableStack.pop().data)

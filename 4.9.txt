@@ -1,0 +1,43 @@
+class node:
+    def __init__(self,name:int):
+        self.name = name
+        self.leftChild = None
+        self.rightChild = None
+
+def BSTsequences(tree:Tree):
+    doubleCount = 0
+    childrenList = [[tree.root.name]]
+    childrenList = helper(tree.root,doubleCount,childrenList)
+    print(childrenList)
+
+
+def helper(node:node,doubleCount:int,childrenList:list):
+    if(node.leftChild and node.rightChild):
+        doubleCount += 1
+        childrenList.append([node.leftChild.name,node.rightChild.name])
+    elif(node.leftChild or node.rightChild):
+        if(node.leftChild):
+            childrenList.append([node.leftChild.name])
+        else:
+            childrenList.append([node.rightChild.name])
+    else:
+        return childrenList,doubleCount
+    childrenList,doubleCount = helper(node.leftChild,doubleCount,childrenList)
+    childrenList,doubleCount = helper(node.rightChild,doubleCount,childrenList)
+    return childrenList,doubleCount
+
+a = node(4)
+b = node(2)
+c = node(6)
+d = node(1)
+e = node(3)
+f = node(5)
+g = node(7)
+a.leftChild = b
+b.leftChild = d
+a.rightChild = c
+b.rightChild = e
+c.leftChild = f
+c.rightChild = g
+h = Tree(a)
+BSTsequences(h)

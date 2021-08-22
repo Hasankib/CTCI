@@ -1,0 +1,66 @@
+class node:
+    def __init__(self,name:int):
+        self.name = name
+        self.leftChild = None
+        self.rightChild = None
+        self.next = None
+
+class Tree:
+    def __init__(self,root:node):
+        self.root = root
+    def printTree(self,root,text,parent):
+        if(root == None):
+            return
+        print(root.name,text,parent)
+        self.printTree(root.leftChild,"left Child of",root.name)
+        self.printTree(root.rightChild,"right Child of",root.name)
+
+def firstCommonAncestor(tree:Tree,node1:node,node2:node):
+    tmp = node1
+    #0 is left, 1 is right
+    node1List = []
+    while(tmp.parent):
+        if(tmp = tmp.leftChild):
+            node1List.append(1)
+        else:
+            node1List.append(0)
+
+    tmp = node2
+    #0 is left, 1 is right
+    node2List = []
+    while(tmp.parent):
+        if(tmp = tmp.leftChild):
+            node2List.append(1)
+        else:
+            node2List.append(0)
+    
+    i = -1
+
+    while( node1List[i] == node2List[i] and abs(i) <= len(node1List and abs(i) <= len(node2List)):
+        i -= 1
+
+    tmp = tree.root
+
+    for i in range(abs(i)):
+        if(node1List[i] == 1)
+            tmp = tmp.rightChild
+        else:
+            tmp = tmp.leftChild
+    
+    return tmp
+
+
+a = node(4)
+b = node(2)
+c = node(6)
+d = node(1)
+e = node(3)
+f = node(5)
+g = node(7)
+a.leftChild = b
+b.leftChild = d
+a.rightChild = c
+b.rightChild = e
+c.leftChild = f
+c.rightChild = g
+h = Tree(a)

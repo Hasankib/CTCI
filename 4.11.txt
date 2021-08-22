@@ -1,0 +1,22 @@
+import random
+getRandomNode(treeLength,tree:Tree):
+    getRandomNodeHelp(random.randint(treeLength),tree)
+
+getRandomNodeHelp(node:int,nodesArray:[]):
+    a = randint(len(nodesArray)):
+    while(not nodesArray[a]):
+        a = randint(len(nodesArray))
+    find(nodesArray[a])
+
+DFS(root,node):
+    if(root == node):
+        return
+    elif(not(root.leftChild and root.rightChild)):
+        if(root.leftChild):
+            return DFS(root.leftChild,node)
+        elif(root.rightChild):
+            return DFS(root.rightChild,node)
+    else:
+        DFS(root.leftChild,node)
+        DFS(root.rightChild,node)
+    return 

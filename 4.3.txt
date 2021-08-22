@@ -1,0 +1,56 @@
+class node:
+    def __init__(self,name:int):
+        self.name = name
+        self.leftChild = None
+        self.rightChild = None
+        self.listNeighbour = None
+
+class Tree:
+    def __init__(self,root:node,parent):
+        self.root = root
+    def printTree(self,root,text:str):
+        if(root == None):
+            return
+        print(root.name,text,parent)
+        self.printTree(root.leftChild,"left Child of",root.name)
+        self.printTree(root.rightChild,"right Child of",root.name)
+
+class LinkedList:
+    def __init__(self,head):
+        self.head = head
+        self.last = self.head
+    
+    def addToList(node:Node):
+        self.last.next = node
+        self.last = node
+
+    def printList(self)
+        length = 0
+        tmp = self.head
+        print(self.tmp.name)
+        while(self.tmp.next != None)
+            self.tmp = self.tmp.next
+            print(self.tmp)
+            length += 1
+        return length
+
+def listOfDepths(tree:Tree):
+    listOfLists = [LinkedList(tree.root)]
+    listOfDepthsHelper(tree.root.leftChild,listOfLists,count+1)
+    listOfDepthsHelper(tree.root.rightChild,listOfLists,count+1)
+    return listOfLists
+
+def listOfDepthsHelper(node:Node,listofLists:[],count:int):
+    if(node == None):
+        return
+    else:
+        if(len(listOfLists)<count + 1):
+            a = LinkedList(node)
+            listOfLists.append(a)
+        else:
+            listOfLists[count].last = node
+            listOfDepthsHelper(node.leftChild,listOfLists,count+1)
+            listOfDepthsHelper(node.rightChild,listOfLists,count+1)
+    
+
+

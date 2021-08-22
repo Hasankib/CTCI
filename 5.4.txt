@@ -1,0 +1,38 @@
+def nextNumber(posInt:int) -> int:
+    numZeros = 0
+    numOnes = 0
+    firstZeroPos = 0
+    secondZeroPos = 0
+    firstOnepos = 0
+    mask1 = 1
+    i = 0
+    if(mask1 & int >> 1) == 1:
+        return -1
+    while(numZeros < 2):
+        tmp = posInt & mask1
+        posInt >> 1
+        if(tmp == 1):
+            numOnes += 1
+            firstOnepos = i
+            numZeros += 1
+            firstZeroPos = i - 1
+        else:
+            if(numZeros and numOnes):
+                secondZeroPos = i
+                numZeros += 1
+        i += 1
+            
+
+    nextSmallest = posInt
+    nextLargest = posInt
+
+    nextSmallest = nextSmallest | (1 << firstZeroPos)
+    nextLargest = nextLargest | (1 << secondZeroPos)
+
+    mask = ~(1 << firstOnepos)
+
+    nextSmallest = nextSmallest & mask
+    nextLargest = nextLargest & mask
+
+    return nextSmallest,nextLargest
+

@@ -1,0 +1,50 @@
+from 4 import *
+from three import queueNode,Queue
+
+class node:
+    def __init__(self,name:str,adjList:list):
+        self.name = name
+        self.children = adjList
+        self.front = front
+        self.behind = behind
+
+
+def routeBetween(graph:Graph,node1:Node,node2:Node):
+    marked= {}
+    queue = Queue()
+    for i in Graph.nodes:
+        marked[i] = False
+
+    marked[node1] = True
+    queue.enqueue(node1)
+
+    while(not queue.isEmpty()):
+        node r = queue.dequeue()
+        marked[r] = True
+
+        for i in r.children:
+            if(marked[i] == False):
+                marked[i] = True
+                if(i == node2):
+                    return True
+                queue.enqueue(i)
+    
+    for i in marked:
+        marked[i] = False
+
+    marked[node2] = True
+    queue.enqueue(node2)
+
+    while(not queue.isEmpty()):
+        node r = queue.dequeue()
+        marked[r] = True
+
+        for i in r.children:
+            if(marked[i] == False):
+                marked[i] = True
+                if(i == node1):
+                    return True
+                queue.enqueue(i)
+    
+    return False
+    
