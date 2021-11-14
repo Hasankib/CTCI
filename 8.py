@@ -77,4 +77,110 @@
 # a = [90]
 # print(a[:0])
 
-8.4
+# 8.4
+
+# def powerSet(setA:set):
+#     if(len(setA) == 0):
+#         return setA
+
+#     elif(len(setA) == 1):
+#         return setA, set()
+#     else:
+#         a = {}
+#         x = set()
+#         listA = []
+#         return powerSetHelper(setA,a,[x])
+
+
+# def powerSetHelper(setA:set,a:dict,lista:list):
+#         if(setA == set()):
+#             return lista
+#         poppedElement = setA.pop()
+#         tmpList = []
+#         if(not(poppedElement in a)):
+#             for i in lista:
+#                 x = i.copy()
+#                 x.add(poppedElement)
+#                 tmpList.append(x)
+#             a[poppedElement] = True
+#         lista = lista + tmpList
+#         return powerSetHelper(setA,a,lista)
+
+
+# print(len(powerSet({1,2,3,4,5})))
+
+
+# b = [1,2,3]
+# c = list(b)
+# b.extend(c)
+# print(b)
+# for i in range (len(b)//2,len(b)):
+#     b[i] += 1
+
+# print(b)
+
+#8.5
+
+
+
+
+# def cutTheRod(n,weights:[int]) -> int :
+#     memo = [0 for i in range(len(weights))]
+#     for i in range(len(weights)):
+#         memo = cutTheRodHelp(i,weights,memo)
+#     return memo[-1]
+
+# def cutTheRodHelp(start,weights,memo):
+#     for i in range(0,start//2):
+#         if((memo[i] + memo[start-i - 1])>memo[start]):
+#             memo[start] = memo[i] + memo[start-i - 1]
+#     if(start//2 *2 == start):
+#         if(memo[start//2]*2 > memo[start]):
+#             memo[start] = memo[start//2]
+#     if(weights[start]>memo[start]):
+#         memo[start] = weights[start]
+#     print(memo)
+#     return memo
+
+# print(cutTheRod(8,[1,5,8,9,10,17,17,20]))
+
+# print(16.5%16)
+#print(ord('a'))
+
+
+
+
+# def smallestAlphabeticalManipulation(s):
+#     if(len(s) == 0 or len(s) == 1):
+#         return s
+    
+# 8.7
+# def permsWithoutDups(string:str) -> list(str):
+#     memoHash = {}
+#     permHolder = []
+#     length = len(string)
+#     if(length == 0):
+#         return None
+#     elif(length == 1):
+#         return string
+#     else:
+#         for i in range(len(string)):
+#             permsWithoutDups(string[:i] + string[i:],memoHash,permHolder,[],string[i])
+
+# def permsWithoutDupsHelper(string:str,memoHash:dict,permHolder:list(str),currentPerms:list,letter) -> list(str):
+#     if(len(string) == 1):
+#         currentPerms.append(string)
+#         memoHash[string] = [string]
+#         return currentPerms,memoHash
+#     if(string in memoHash):
+#         for i in currentPerms:
+#             for x in memoHash[string]:
+#                 i += x
+#     for i in range(i,len(string)):
+
+#         permsWithoutDupsHelper(string,memoHash)
+        
+
+##8.5
+
+# def recursiveMultiply(inta:int,intb:int) -> int:
